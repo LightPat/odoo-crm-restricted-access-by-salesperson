@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_users_form_inherit_crm_restricted_access" model="ir.ui.view">
+        <field name="name">res.users.form.inherit.crm.restricted.access</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='access_rights']" position="after">
+                <page string="CRM Access Restrictions" name="crm_restrictions">
+                    <group string="Opportunity Visibility">
+                        <field name="allowed_crm_salesperson_ids"
+                               widget="many2many_tags"
+                               options="{'no_create': True}"/>
+                    </group>
+                    <div class="alert alert-info mt-3" role="alert">
+                        <strong>Setup:</strong> Create a group like "CRM / User: Specific Salespeople Only".
+                        Grant it Read access on <code>crm.lead</code> (and related models: res.partner, res.users, crm.stage as needed).
+                        Add a Record Rule on <code>crm.lead</code> with domain:
+                        <code>[('user_id', 'in', user.allowed_crm_salesperson_ids.ids)]</code>
+                        (optionally add <code>('type', '=', 'opportunity')</code>).
+                        Assign the group to the restricted user and select allowed salespeople here.
+                    </div>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,7 +1,7 @@
 [project]
 name = "odoo-crm-restricted-access-by-salesperson"
 version = "0.1.0"
-description = "Add your description here"
+description = "Restrict CRM users to see only opportunities assigned to selected salespeople via per-user configuration"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = []

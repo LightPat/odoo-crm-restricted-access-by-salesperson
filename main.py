@@ -1,6 +1,2 @@
-def main():
-    print("Hello from odoo-crm-restricted-access-by-salesperson!")
-
-
-if __name__ == "__main__":
-    main()
+# This file is no longer used. Module has been restructured to proper Odoo layout.
+# See models/ and views/ instead.
